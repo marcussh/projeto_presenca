@@ -732,6 +732,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var HomePage = (function () {
     function HomePage(navCtrl, geo, storage, uniqueDeviceID) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.geo = geo;
         this.storage = storage;
@@ -740,7 +741,7 @@ var HomePage = (function () {
         this.lngEvento = -47.879623;
         this.unit = "K";
         this.uniqueDeviceID.get()
-            .then(function (uuid) { return console.log(uuid); })
+            .then(function (uuid) { return _this.id = uuid; })
             .catch(function (error) { return console.log(error); });
     }
     HomePage.prototype.abrirEvento = function () {
@@ -793,7 +794,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Marcus Vinicius\Documents\Projeto PPI2\projeto_v2\src\pages\home\home.html"*/`<ion-header>\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Home</ion-title>\n    <ion-badge color="secondary" item-end (click)="remove()">Sair</ion-badge>\n  </ion-navbar>\n</ion-header>\n\n\n  \n\n<ion-content padding>\n  \n  <button ion-button (click)="pegarLocalizacao()">Pegar localização</button>\n  <h2>Latitude: {{ lat }}</h2>\n  <h2>Longitude: {{ lng }}</h2>\n  <h2>Latitude Evento: {{ latEvento }}</h2>\n  <h2>Longitude Evento: {{ lngEvento }}</h2>\n  <p [hidden]=true>{{ unit }}</p>\n  <p>Data e hora: {{ now }}</p>\n\n  <button ion-button (click)="distance(lat, lng, latEvento, lngEvento, unit)">Calcular localização</button>\n  <p>{{ distance(lat, lng, latEvento, lngEvento, unit) }}</p>\n  <p>{{ verifica(distance(lat, lng, latEvento, lngEvento, unit)) }}</p>\n</ion-content>\n`/*ion-inline-end:"C:\Users\Marcus Vinicius\Documents\Projeto PPI2\projeto_v2\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Marcus Vinicius\Documents\Projeto PPI2\projeto_v2\src\pages\home\home.html"*/`<ion-header>\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Home</ion-title>\n    <ion-badge color="secondary" item-end (click)="remove()">Sair</ion-badge>\n  </ion-navbar>\n</ion-header>\n\n\n  \n\n<ion-content padding>\n  \n  <button ion-button (click)="pegarLocalizacao()">Pegar localização</button>\n  <h2>Latitude: {{ lat }}</h2>\n  <h2>Longitude: {{ lng }}</h2>\n  <h2>Latitude Evento: {{ latEvento }}</h2>\n  <h2>Longitude Evento: {{ lngEvento }}</h2>\n  <p [hidden]=true>{{ unit }}</p>\n  <p>Data e hora: {{ now }}</p>\n  <p>Id: {{ id }}</p>\n\n  <button ion-button (click)="distance(lat, lng, latEvento, lngEvento, unit)">Calcular localização</button>\n  <p>{{ distance(lat, lng, latEvento, lngEvento, unit) }}</p>\n  <p>{{ verifica(distance(lat, lng, latEvento, lngEvento, unit)) }}</p>\n</ion-content>\n`/*ion-inline-end:"C:\Users\Marcus Vinicius\Documents\Projeto PPI2\projeto_v2\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
